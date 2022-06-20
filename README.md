@@ -1,9 +1,13 @@
 <p align="center">
-   EPIC-NTP
+   <h1>EPIC-NTP</h1>
+   <h6> Simple REST API </h6>
+<p align="center">
 
-  [![Node](https://img.shields.io/badge/node--lts-v16.15.1-brightgreen)]()
-  [![PG](https://img.shields.io/badge/pg-v8.4.0-blue)]()
-  [![Testing](https://img.shields.io/badge/Total%20tests-2-blue)]()
+[![Node](https://img.shields.io/badge/node--lts-v16.15.1-brightgreen)]()
+[![PG](https://img.shields.io/badge/pg-v8.4.0-blue)]()
+[![Testing](https://img.shields.io/badge/Total%20tests-1-blue)]()
+
+</p>
 </p>
 
 ## Installation and Running
@@ -11,6 +15,11 @@
 ```sh
 $ npm install
 $ npm run start:dev
+$ npm run start
+$ npm run test
+$ npm run test:dev
+$ npm run test:watch
+$ npm run build
 ##
 # Run docker-compose
 $ docker-compose up -d
@@ -18,6 +27,63 @@ $ docker-compose up -d
 ```
 
 ## Project structure
+```
+.
+│   .dockerignore
+│   .env
+│   .env.local
+│   .gitignore
+│   docker-compose.yml
+│   docker.env
+│   jest.config.js
+│   package-lock.json
+│   package.json
+│   README.md
+│   tsconfig.json
+│
+├───src
+│   │   app.ts
+│   │   index.ts
+│   │
+│   ├───config
+│   │   │   index.ts
+│   │   │
+│   │   ├───helper
+│   │   │       AppDataSource.ts
+│   │   │       Handler.ts
+│   │   │       index.ts
+│   │   │
+│   │   ├───swagger
+│   │   │       swagger.json
+│   │   │
+│   │   └───variable
+│   │           index.ts
+│   │           mockData.json
+│   │
+│   ├───controller
+│   │       UserController.spec.ts
+│   │       UserController.ts
+│   │
+│   ├───entity
+│   │       User.ts
+│   │
+│   ├───interface
+│   │   │   index.ts
+│   │   │   UserRequestInterface.ts
+│   │   │   UserResponseInterface.ts
+│   │   │
+│   │   └───types
+│   │           index.ts
+│   │
+│   ├───routers
+│   │       routes.ts
+│   │
+│   └───services
+│           UserService.ts
+│
+└───__tests__
+        UserIntegration.spec.ts
+```
 
 ## Postman Request
 
