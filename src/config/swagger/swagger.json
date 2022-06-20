@@ -1,0 +1,199 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "EPIC-NTP REST API"
+  },
+  "host": "localhost:3022",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API for users in the system"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+
+    "/users": {
+      "get": {
+          "tags": [
+            "Users"
+          ],
+          "summary": "Get all Users",
+          "parameters": [
+            {
+              "name": "query",
+              "in": "query",
+              "description": "Search User by first name",
+              "schema": {
+                "$ref": "#/definitions/Users"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Users"
+              }
+            }
+          }
+        },
+
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create new User",
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New user is created",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        }
+      }
+
+    },
+    "/users?query=firstname": {
+      "get": {
+        "summary": "Delete user with given FirstName",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Search users by name",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        }
+      }
+    },
+
+    "/users/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "The id of the user we want to find",
+          "type": "integer"
+        }
+      ],
+      "get": {
+        "summary": "Get user with given Id",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "Get User By Id",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        }
+      },
+
+      "delete": {
+        "summary": "Delete user with given Id",
+        "tags": [
+          "Users"
+        ],
+        "responses": {
+          "200": {
+            "description": "User is deleted"
+          }
+        }
+      },
+
+      "put": {
+        "summary": "Update user with give Id",
+        "tags": [
+          "Users"
+        ],
+        "parameters": [
+          {
+            "name": "user",
+            "in": "body",
+            "description": "User with new values of properties",
+            "schema": {
+              "$ref": "#/definitions/updateUser"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User is updated",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        }
+      }
+    }
+  },
+
+
+  "definitions": {
+    "Users": {
+      "required": [
+        "id",
+        "firstName"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "uniqueItems": true
+        },
+        "firtName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "age": {
+          "type": "number"
+        }
+      }
+    },
+    "updateUser": {
+      "properties": {
+        "firtName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "age": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}

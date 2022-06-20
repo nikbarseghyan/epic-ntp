@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  epic_pg:
+    image: postgres:14.3-alpine
+    env_file:
+      - docker.env
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'

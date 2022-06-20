@@ -1,0 +1,36 @@
+{
+    "status": 200,
+    "data": [
+        {
+            "id": 7,
+            "firstName": "Veronika 1",
+            "lastName": "LLLLLLLLLLLLL",
+            "age": 66
+        },
+        {
+            "id": 11,
+            "firstName": "Veronika G",
+            "lastName": "Luba",
+            "age": 22
+        },
+        {
+            "id": 6,
+            "firstName": "Flora",
+            "lastName": "Dou",
+            "age": 22
+        },
+        {
+            "id": 12,
+            "firstName": "Gala",
+            "lastName": "Dali",
+            "age": 34
+        },
+        {
+            "id": 13,
+            "firstName": "Jessica",
+            "lastName": "Alba",
+            "age": 34
+        }
+    ],
+    "error": null
+}
