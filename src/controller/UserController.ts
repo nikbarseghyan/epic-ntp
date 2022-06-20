@@ -38,7 +38,7 @@ export class UserController {
         try{
             AuthorizationJwt(request, response);
 
-            const query: UserRequestQuery = String( request?.query?.query);
+            const query: UserRequestQuery = String(request?.query?.query);
             const data: UserDataResponse = await this.userService.getAllUsers(query);
     
             if(!data) {
